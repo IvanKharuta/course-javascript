@@ -41,7 +41,6 @@ module.exports = {
   mode,
   devServer: {
     proxy,
-    open: true,
   },
   module: {
     rules: [
@@ -52,8 +51,7 @@ module.exports = {
         options: { cacheDirectory: true },
       },
       {
-        test: /\.html$/,
-        include: [path.resolve(__dirname, 'projects')],
+        test: /projects\/.+\.html/,
         use: [
           { loader: './scripts/html-inject-loader.js' },
           {
